@@ -1,0 +1,13 @@
+
+.classpath
+.idea/
+.project
+ZzlsCMS-grailsPlugins.iml
+ZzlsCMS.iml
+*.h2.db
+*.lock.db
+*.trace.db
+target/
+wrapper/
+grailsw
+grailsw.bat
