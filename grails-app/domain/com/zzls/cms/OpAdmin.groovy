@@ -17,4 +17,8 @@ class OpAdmin {
         dateCreated()
         lastUpdated()
     }
+
+    String toString() {
+        "${userName}(${realName})"
+    }
 }

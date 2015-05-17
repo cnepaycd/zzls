@@ -20,7 +20,7 @@
 	<body>
 		%{--<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>--}%
 		<div id="zzls-header">
-			<div id="zzls-header-logo"><asset:image src="logo.png" /></div>
+			<div id="zzls-header-logo"><g:link uri="/"><asset:image src="logo.png" /></g:link></div>
 			<div id="zzls-header-hotline"><asset:image src="hotline.png" /></div>
 		</div>
 		%{--<div id="zzls-nav"></div>--}%

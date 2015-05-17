@@ -14,18 +14,7 @@
 </head>
 
 <body>
-    <div id="zzls-menu">
-        <ul>
-            <li><a href="#">首 页</a></li>
-            <li><a href="#">今日农商行</a></li>
-            <li><a href="#">新闻中心</a></li>
-            <li><a href="#">公司金融业务</a></li>
-            <li><a href="#">个人金融业务</a></li>
-            <li><a href="#">电子银行业务</a></li>
-            <li><a href="#">资金业务</a></li>
-            <li style="border: none"><a href="#">投资者关系</a></li>
-        </ul>
-    </div>
+    <g:render template="/layouts/menu" />
 
     <div id="zzls-banner"><asset:image src="banner.png"/></div>
 
@@ -111,32 +100,38 @@
                 <span>最新公告</span>
                 <a href="#">MORE</a>
             </div>
-            <div class="channel-top">
-                <div class="channel-top-img"><asset:image src="news-demo.png" width="148px" height="112px" /></div>
-                <div class="channel-top-title"><strong>标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</strong></div>
-                <div class="channel-top-description">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</div>
-                <div class="channel-top-detail"><a href="#">查看详情 >></a></div>
-            </div>
+            <g:if test="${gonggaoTop != null}">
+                <div class="channel-top">
+                    <div class="channel-top-img"><asset:image src="news-demo.png" width="148px" height="112px" /></div>
+                    <div class="channel-top-title"><strong>标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</strong></div>
+                    <div class="channel-top-description">摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</div>
+                    <div class="channel-top-detail"><a href="#">查看详情 >></a></div>
+                </div>
+            </g:if>
+            <g:if test="${gonggaoList.size() > 0}">
             <div class="channel-list">
                 <ul>
-                    <li>
-                        <span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>
-                        <span class="notice-date">2015-05-01</span>
-                    </li>
-                    <li>
-                        <span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>
-                        <span class="notice-date">2015-05-01</span>
-                    </li>
-                    <li>
-                        <span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>
-                        <span class="notice-date">2015-05-01</span>
-                    </li>
-                    <li>
-                        <span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>
-                        <span class="notice-date">2015-05-01</span>
-                    </li>
+                    <g:each in="${gonggaoList}" status="i" var="gonggao">
+                        <li>
+                            <span class="notice-title"><g:link controller="index" action="news" id="${gonggao.id}">${gonggao.title}</g:link></span>
+                            <span class="notice-date"><g:formatDate format="yyyy-MM-dd" date="${gonggao.dateCreated}" /></span>
+                        </li>
+                    </g:each>
+                    %{--<li>--}%
+                        %{--<span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>--}%
+                        %{--<span class="notice-date">2015-05-01</span>--}%
+                    %{--</li>--}%
+                    %{--<li>--}%
+                        %{--<span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>--}%
+                        %{--<span class="notice-date">2015-05-01</span>--}%
+                    %{--</li>--}%
+                    %{--<li>--}%
+                        %{--<span class="notice-title"><a href="#">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题题标题标题标题标</a></span>--}%
+                        %{--<span class="notice-date">2015-05-01</span>--}%
+                    %{--</li>--}%
                 </ul>
             </div>
+            </g:if>
         </div>
         <!-- 农商动态 -->
         <div class="channel-block" style="margin-left: 10px">
