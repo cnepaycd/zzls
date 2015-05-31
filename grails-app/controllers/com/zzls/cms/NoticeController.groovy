@@ -10,6 +10,10 @@ class NoticeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def test() {
+        println("=========test")
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Notice.list(params), model:[noticeInstanceCount: Notice.count()]
@@ -42,7 +46,7 @@ class NoticeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'notice.label', default: 'Notice'), noticeInstance.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'notice.label', default: 'Notice'), noticeInstance.title])
                 redirect noticeInstance
             }
             '*' { respond noticeInstance, [status: CREATED] }
@@ -60,6 +64,8 @@ class NoticeController {
             return
         }
 
+        println(noticeInstance.properties.toMapString())
+
         if (noticeInstance.hasErrors()) {
             respond noticeInstance.errors, view:'edit'
             return
@@ -72,7 +78,7 @@ class NoticeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Notice.label', default: 'Notice'), noticeInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Notice.label', default: 'Notice'), noticeInstance.title])
                 redirect noticeInstance
             }
             '*'{ respond noticeInstance, [status: OK] }
@@ -91,7 +97,7 @@ class NoticeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Notice.label', default: 'Notice'), noticeInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Notice.label', default: 'Notice'), noticeInstance.title])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

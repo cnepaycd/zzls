@@ -1,5 +1,7 @@
 package com.zzls.cms
 
+import groovy.json.StringEscapeUtils
+
 import static org.springframework.http.HttpStatus.NOT_FOUND
 
 class IndexController {
@@ -23,7 +25,8 @@ class IndexController {
             return
         }
 
-        notice.content = notice.content.replaceAll("\n", "<br>")
+        println("notice.content=" + notice.content)
+//        println("escape=" + notice.content.encodeAsHTML())
 
         [notice : notice]
     }

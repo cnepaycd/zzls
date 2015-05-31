@@ -1,5 +1,5 @@
 
-<%@ page import="com.zzls.cms.Notice" %>
+<%@ page import="com.zzls.cms.Notice" defaultCodec="none" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="content-label" class="property-label"><g:message code="notice.content.label" default="Content" /></span>
 					
-						<span class="property-value" aria-labelledby="content-label"><g:fieldValue bean="${noticeInstance}" field="content"/></span>
+						<span class="property-value" aria-labelledby="content-label">${noticeInstance.content}</span>
 					
 				</li>
 				</g:if>
