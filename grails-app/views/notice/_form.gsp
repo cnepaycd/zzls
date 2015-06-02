@@ -54,9 +54,10 @@
 
 <script type="text/javascript">
 	var ue = UE.getEditor('content', {
-		toolbars: [
-			['undo', 'redo', '|', 'link', 'simpleupload', 'insertvideo','attachment']
-		],
+//		toolbars: [
+//			['undo', 'redo', '|', 'link', 'simpleupload', 'insertvideo','attachment']
+//		],
+		toolbars: [],
 		pasteplain: true,
 		enableContextMenu: false,
 		elementPathEnabled: false,
