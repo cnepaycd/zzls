@@ -8,6 +8,3 @@ ZzlsCMS.iml
 *.lock.db
 *.trace.db
 target/
-wrapper/
-grailsw
-grailsw.bat
